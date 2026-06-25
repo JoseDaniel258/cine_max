@@ -1,8 +1,5 @@
 import { IsInt, IsNumber, IsDateString, IsOptional, Min } from 'class-validator';
 
-/**
- * DTO para actualizar una función existente
- */
 export class ActualizarFuncionDto {
   @IsInt()
   @IsOptional()

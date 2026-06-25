@@ -1,8 +1,6 @@
 import { IsNotEmpty, IsInt, IsNumber, IsDateString, Min } from 'class-validator';
 
-/**
- * DTO para crear una nueva función de cine
- */
+
 export class CrearFuncionDto {
   @IsInt({ message: 'El ID de película debe ser un número entero' })
   @IsNotEmpty({ message: 'La película es obligatoria' })

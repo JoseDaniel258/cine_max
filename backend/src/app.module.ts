@@ -10,9 +10,7 @@ import { AutenticacionModule } from './autenticacion/autenticacion.module';
 
 @Module({
   imports: [
-    // Conexión a PostgreSQL
     TypeOrmModule.forRoot(configuracionBaseDatos),
-    // Módulos del sistema
     AutenticacionModule,
     UsuariosModule,
     PeliculasModule,

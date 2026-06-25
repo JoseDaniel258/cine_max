@@ -1,8 +1,5 @@
 import { IsEmail, IsNotEmpty, IsString, MinLength } from 'class-validator';
 
-/**
- * DTO para registro de nuevos usuarios
- */
 export class RegistroDto {
   @IsString()
   @IsNotEmpty({ message: 'El nombre es obligatorio' })

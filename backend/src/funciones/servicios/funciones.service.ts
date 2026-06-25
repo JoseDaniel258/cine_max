@@ -5,10 +5,7 @@ import { Funcion } from '../entidades/funcion.entity';
 import { CrearFuncionDto } from '../dto/crear-funcion.dto';
 import { ActualizarFuncionDto } from '../dto/actualizar-funcion.dto';
 
-/**
- * Servicio de Funciones
- * CRUD de funciones con validación de solapamiento de horarios
- */
+
 @Injectable()
 export class FuncionesService {
   constructor(
@@ -16,9 +13,7 @@ export class FuncionesService {
     private readonly funcionRepositorio: Repository<Funcion>,
   ) {}
 
-  /**
-   * Listar todas las funciones con sus relaciones
-   */
+
   async listarTodas(): Promise<Funcion[]> {
     return this.funcionRepositorio.find({
       relations: ['pelicula', 'sala'],
