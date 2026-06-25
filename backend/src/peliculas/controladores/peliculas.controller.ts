@@ -13,9 +13,7 @@ import { JwtAuthGuard } from '../../autenticacion/guardias/jwt-auth.guard';
 import { RolesGuard } from '../../autenticacion/guardias/roles.guard';
 import { Roles } from '../../autenticacion/decoradores/roles.decorator';
 
-/**
- * Configuración de almacenamiento para imágenes de posters
- */
+
 const almacenamientoPosters = diskStorage({
   destination: './uploads/posters',
   filename: (req, file, callback) => {
@@ -24,18 +22,12 @@ const almacenamientoPosters = diskStorage({
   },
 });
 
-/**
- * Controlador de Películas
- * Endpoints públicos para cartelera y endpoints protegidos para admin
- */
+
 @Controller('peliculas')
 export class PeliculasController {
   constructor(private readonly peliculasService: PeliculasService) {}
 
-  /**
-   * GET /api/peliculas
-   * Listar películas (público) - con búsqueda y filtro por género
-   */
+
   @Get()
   async listarTodas(
     @Query('busqueda') busqueda?: string,
@@ -44,19 +36,13 @@ export class PeliculasController {
     return this.peliculasService.listarTodas(busqueda, genero);
   }
 
-  /**
-   * GET /api/peliculas/:id
-   * Detalle de película con funciones disponibles (público)
-   */
+
   @Get(':id')
   async obtenerPorId(@Param('id', ParseIntPipe) id: number) {
     return this.peliculasService.obtenerPorId(id);
   }
 
-  /**
-   * POST /api/peliculas
-   * Crear película (solo admin) - con upload de imagen
-   */
+
   @Post()
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('admin')
@@ -69,10 +55,7 @@ export class PeliculasController {
     return this.peliculasService.crear(crearPeliculaDto, imagenUrl);
   }
 
-  /**
-   * PATCH /api/peliculas/:id
-   * Editar película (solo admin)
-   */
+
   @Patch(':id')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('admin')
@@ -86,10 +69,7 @@ export class PeliculasController {
     return this.peliculasService.actualizar(id, actualizarDto, imagenUrl);
   }
 
-  /**
-   * DELETE /api/peliculas/:id
-   * Eliminar película (solo admin)
-   */
+
   @Delete(':id')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('admin')

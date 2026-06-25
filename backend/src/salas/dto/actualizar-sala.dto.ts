@@ -1,8 +1,5 @@
 import { IsString, IsInt, IsOptional, Min, Max } from 'class-validator';
 
-/**
- * DTO para actualizar una sala existente
- */
 export class ActualizarSalaDto {
   @IsString()
   @IsOptional()

@@ -1,8 +1,6 @@
 import { IsNotEmpty, IsString, IsInt, Min, Max } from 'class-validator';
 
-/**
- * DTO para crear una nueva sala
- */
+
 export class CrearSalaDto {
   @IsString()
   @IsNotEmpty({ message: 'El nombre de la sala es obligatorio' })

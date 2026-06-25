@@ -7,11 +7,7 @@ import { Funcion } from '../../funciones/entidades/funcion.entity';
 import { Sala } from '../../salas/entidades/sala.entity';
 import { CrearReservaDto } from '../dto/crear-reserva.dto';
 
-/**
- * Servicio de Reservas
- * Maneja la creación de reservas con validación de asientos
- * Usa transacciones para garantizar integridad
- */
+
 @Injectable()
 export class ReservasService {
   constructor(
@@ -24,12 +20,8 @@ export class ReservasService {
     private readonly dataSource: DataSource,
   ) {}
 
-  /**
-   * Crear una nueva reserva con sus asientos
-   * Usa transacción para garantizar atomicidad
-   */
+
   async crear(usuarioId: number, crearReservaDto: CrearReservaDto): Promise<Reserva> {
-    // Verificar que la función existe y obtener la sala
     const funcion = await this.funcionRepositorio.findOne({
       where: { id: crearReservaDto.funcionId },
       relations: ['sala', 'pelicula'],
@@ -39,7 +31,6 @@ export class ReservasService {
       throw new NotFoundException('La función seleccionada no existe');
     }
 
-    // Validar que los asientos están dentro del rango de la sala
     for (const asiento of crearReservaDto.asientos) {
       if (asiento.fila < 1 || asiento.fila > funcion.sala.filas) {
         throw new BadRequestException(
@@ -53,7 +44,6 @@ export class ReservasService {
       }
     }
 
-    // Verificar que los asientos no estén ya reservados
     const asientosOcupados = await this.reservaAsientoRepositorio
       .createQueryBuilder('ra')
       .where('ra.funcion_id = :funcionId', { funcionId: crearReservaDto.funcionId })
@@ -71,13 +61,11 @@ export class ReservasService {
       );
     }
 
-    // Crear la reserva usando una transacción
     const queryRunner = this.dataSource.createQueryRunner();
     await queryRunner.connect();
     await queryRunner.startTransaction();
 
     try {
-      // Crear la reserva principal
       const reserva = queryRunner.manager.create(Reserva, {
         usuarioId,
         funcionId: crearReservaDto.funcionId,
@@ -86,9 +74,8 @@ export class ReservasService {
 
       const reservaGuardada = await queryRunner.manager.save(Reserva, reserva);
 
-      // Crear los registros de asientos individuales
       const asientosEntidades = crearReservaDto.asientos.map((asiento) => {
-        const letra = String.fromCharCode(64 + asiento.fila); // A, B, C...
+        const letra = String.fromCharCode(64 + asiento.fila);
         const codigoAsiento = `${letra}${asiento.columna}`;
 
         return queryRunner.manager.create(ReservaAsiento, {
@@ -104,7 +91,6 @@ export class ReservasService {
 
       await queryRunner.commitTransaction();
 
-      // Retornar la reserva completa con relaciones
       return this.reservaRepositorio.findOne({
         where: { id: reservaGuardada.id },
         relations: ['asientos', 'funcion', 'funcion.pelicula', 'funcion.sala'],
@@ -112,7 +98,6 @@ export class ReservasService {
     } catch (error) {
       await queryRunner.rollbackTransaction();
 
-      // Si el error es por constraint UNIQUE, un asiento fue tomado concurrentemente
       if (error.code === '23505') {
         throw new ConflictException('Uno o más asientos fueron reservados por otro usuario. Intente nuevamente.');
       }
@@ -122,9 +107,6 @@ export class ReservasService {
     }
   }
 
-  /**
-   * Obtener las reservas del usuario autenticado
-   */
   async obtenerMisReservas(usuarioId: number): Promise<Reserva[]> {
     return this.reservaRepositorio.find({
       where: { usuarioId },
@@ -133,10 +115,7 @@ export class ReservasService {
     });
   }
 
-  /**
-   * Obtener el mapa de asientos de una función
-   * Retorna la sala con los asientos ocupados marcados
-   */
+
   async obtenerMapaAsientos(funcionId: number) {
     const funcion = await this.funcionRepositorio.findOne({
       where: { id: funcionId },
@@ -147,12 +126,10 @@ export class ReservasService {
       throw new NotFoundException('Función no encontrada');
     }
 
-    // Obtener todos los asientos reservados para esta función
     const asientosOcupados = await this.reservaAsientoRepositorio.find({
       where: { funcionId },
     });
 
-    // Crear el mapa de asientos
     const mapa = [];
     for (let fila = 1; fila <= funcion.sala.filas; fila++) {
       const filaAsientos = [];

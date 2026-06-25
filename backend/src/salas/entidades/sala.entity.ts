@@ -1,11 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, OneToMany } from 'typeorm';
 import { Funcion } from '../../funciones/entidades/funcion.entity';
 
-/**
- * Entidad Sala
- * Representa una sala de cine con su distribución de asientos (filas x columnas)
- * Tabla: salas
- */
+
 @Entity('salas')
 export class Sala {
   @PrimaryGeneratedColumn()

@@ -1,11 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, OneToMany } from 'typeorm';
 import { Reserva } from '../../reservas/entidades/reserva.entity';
 
-/**
- * Entidad Usuario
- * Representa a los usuarios del sistema (clientes y administradores)
- * Tabla: usuarios
- */
+
 @Entity('usuarios')
 export class Usuario {
   @PrimaryGeneratedColumn()
