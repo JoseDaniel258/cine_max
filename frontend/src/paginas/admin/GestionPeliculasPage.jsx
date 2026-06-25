@@ -163,7 +163,6 @@ export default function GestionPeliculasPage() {
           </div>
         )}
 
-        {/* Modal Formulario */}
         {modalAbierto && (
           <div className="modal-overlay">
             <div className="modal">

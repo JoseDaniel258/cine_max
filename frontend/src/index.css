@@ -1,21 +1,12 @@
-/* ============================================================
-   Sistema de Gestión de Cartelera - Design System
-   Tema: Dark Cinema Premium
-   ============================================================ */
 
-/* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap');
 
-/* ============================================================
-   CSS Variables (Tokens de Diseño)
-   ============================================================ */
+
 :root {
-  /* Colores primarios */
   --color-primary: #e50914;
   --color-primary-dark: #b20710;
   --color-primary-light: #ff3d47;
 
-  /* Colores de fondo */
   --bg-primary: #0a0a0f;
   --bg-secondary: #12121a;
   --bg-tertiary: #1a1a2e;
@@ -24,26 +15,22 @@
   --bg-glass: rgba(22, 22, 37, 0.7);
   --bg-input: rgba(30, 30, 50, 0.8);
 
-  /* Colores de texto */
   --text-primary: #f0f0f5;
   --text-secondary: #a0a0b8;
   --text-muted: #6b6b85;
   --text-accent: #e50914;
 
-  /* Colores de estado */
   --color-success: #22c55e;
   --color-warning: #f59e0b;
   --color-error: #ef4444;
   --color-info: #3b82f6;
 
-  /* Colores de asientos */
   --seat-available: #2d2d4a;
   --seat-available-hover: #4a4a7a;
   --seat-selected: #e50914;
   --seat-occupied: #9333ea;
   --seat-occupied-border: #7e22ce;
 
-  /* Bordes y sombras */
   --border-color: rgba(255, 255, 255, 0.08);
   --border-accent: rgba(229, 9, 20, 0.3);
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -51,17 +38,14 @@
   --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
   --shadow-glow: 0 0 20px rgba(229, 9, 20, 0.15);
 
-  /* Gradientes */
   --gradient-primary: linear-gradient(135deg, #e50914, #b20710);
   --gradient-dark: linear-gradient(180deg, #0a0a0f 0%, #12121a 100%);
   --gradient-card: linear-gradient(145deg, rgba(26, 26, 46, 0.6), rgba(16, 16, 30, 0.8));
   --gradient-hero: linear-gradient(180deg, transparent 0%, rgba(10, 10, 15, 0.8) 60%, #0a0a0f 100%);
 
-  /* Tipografía */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-display: 'Outfit', 'Inter', sans-serif;
 
-  /* Bordes redondeados */
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
@@ -74,9 +58,6 @@
   --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ============================================================
-   Reset & Base
-   ============================================================ */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -125,9 +106,6 @@ ul, ol {
   list-style: none;
 }
 
-/* ============================================================
-   Layout
-   ============================================================ */
 .app-container {
   min-height: 100vh;
   display: flex;
@@ -149,9 +127,6 @@ ul, ol {
   padding: 48px 0;
 }
 
-/* ============================================================
-   Navbar
-   ============================================================ */
 .navbar {
   position: fixed;
   top: 0;
@@ -247,9 +222,6 @@ ul, ol {
   color: white;
 }
 
-/* ============================================================
-   Buttons
-   ============================================================ */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -346,9 +318,6 @@ ul, ol {
   transform: none !important;
 }
 
-/* ============================================================
-   Cards
-   ============================================================ */
 .card {
   background: var(--gradient-card);
   border: 1px solid var(--border-color);
@@ -454,9 +423,6 @@ ul, ol {
   color: var(--text-secondary);
 }
 
-/* ============================================================
-   Forms
-   ============================================================ */
 .form-group {
   margin-bottom: 20px;
 }
@@ -518,9 +484,6 @@ ul, ol {
   margin-top: 4px;
 }
 
-/* ============================================================
-   Auth Pages
-   ============================================================ */
 .auth-page {
   min-height: calc(100vh - 70px);
   display: flex;
@@ -566,18 +529,12 @@ ul, ol {
   font-weight: 600;
 }
 
-/* ============================================================
-   Movie Grid
-   ============================================================ */
 .movies-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 24px;
 }
 
-/* ============================================================
-   Filters
-   ============================================================ */
 .filters-bar {
   display: flex;
   align-items: center;
@@ -646,9 +603,6 @@ ul, ol {
   border-color: var(--color-primary);
 }
 
-/* ============================================================
-   Movie Detail
-   ============================================================ */
 .movie-detail-hero {
   position: relative;
   min-height: 500px;
@@ -723,9 +677,6 @@ ul, ol {
   max-width: 600px;
 }
 
-/* ============================================================
-   Seat Map
-   ============================================================ */
 .seat-map-container {
   padding: 40px 0;
 }
@@ -831,9 +782,7 @@ ul, ol {
   border-radius: 4px;
 }
 
-/* ============================================================
-   Functions list
-   ============================================================ */
+
 .functions-list {
   display: flex;
   flex-direction: column;
@@ -893,9 +842,7 @@ ul, ol {
   font-family: var(--font-display);
 }
 
-/* ============================================================
-   Reservation Summary
-   ============================================================ */
+
 .reservation-summary {
   background: var(--gradient-card);
   border: 1px solid var(--border-color);
@@ -944,9 +891,6 @@ ul, ol {
   font-family: var(--font-display);
 }
 
-/* ============================================================
-   Reservations list (Mis Reservas)
-   ============================================================ */
 .reservations-list {
   display: flex;
   flex-direction: column;
@@ -1017,9 +961,6 @@ ul, ol {
   font-weight: 600;
 }
 
-/* ============================================================
-   Admin Panel
-   ============================================================ */
 .admin-header {
   display: flex;
   justify-content: space-between;
@@ -1076,10 +1017,6 @@ ul, ol {
   display: flex;
   gap: 8px;
 }
-
-/* ============================================================
-   Modal
-   ============================================================ */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -1118,9 +1055,7 @@ ul, ol {
   margin-top: 24px;
 }
 
-/* ============================================================
-   Loading
-   ============================================================ */
+
 .loading-container {
   display: flex;
   flex-direction: column;
@@ -1144,9 +1079,6 @@ ul, ol {
   font-size: 0.9rem;
 }
 
-/* ============================================================
-   Empty state
-   ============================================================ */
 .empty-state {
   text-align: center;
   padding: 60px 20px;
@@ -1166,9 +1098,7 @@ ul, ol {
   margin-bottom: 8px;
 }
 
-/* ============================================================
-   Page Title
-   ============================================================ */
+
 .page-title {
   font-family: var(--font-display);
   font-size: 2rem;
@@ -1182,9 +1112,7 @@ ul, ol {
   margin-bottom: 32px;
 }
 
-/* ============================================================
-   Poster placeholder
-   ============================================================ */
+
 .poster-placeholder {
   width: 100%;
   height: 100%;
@@ -1196,9 +1124,6 @@ ul, ol {
   font-size: 2.5rem;
 }
 
-/* ============================================================
-   Animations
-   ============================================================ */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -1227,9 +1152,6 @@ ul, ol {
   animation: slideUp 0.5s ease;
 }
 
-/* ============================================================
-   Responsive
-   ============================================================ */
 @media (max-width: 768px) {
   .navbar-links {
     display: none;
@@ -1278,9 +1200,7 @@ ul, ol {
   }
 }
 
-/* ============================================================
-   Scrollbar
-   ============================================================ */
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -1298,9 +1218,7 @@ ul, ol {
   background: rgba(255, 255, 255, 0.2);
 }
 
-/* ============================================================
-   Toast overrides
-   ============================================================ */
+
 .react-hot-toast {
   font-family: var(--font-primary) !important;
 }

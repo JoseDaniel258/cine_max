@@ -65,7 +65,6 @@ export default function DetallePeliculaPage() {
 
   return (
     <div className="main-content fade-in">
-      {/* Hero con fondo borroso */}
       <div className="movie-detail-hero">
         <div
           className="hero-bg"
@@ -112,7 +111,6 @@ export default function DetallePeliculaPage() {
         </div>
       </div>
 
-      {/* Funciones disponibles */}
       <div className="container page-section">
         <h2 className="page-title" style={{ fontSize: '1.5rem' }}>
           <MdCalendarMonth style={{ marginRight: 8, verticalAlign: 'middle' }} />

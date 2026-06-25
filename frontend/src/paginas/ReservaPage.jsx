@@ -80,7 +80,6 @@ export default function ReservaPage() {
     <div className="main-content fade-in">
       <div className="container page-section">
         <div style={{ display: 'flex', gap: 40, flexWrap: 'wrap' }}>
-          {/* Mapa de asientos */}
           <div style={{ flex: 1, minWidth: 300 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
               <button 
@@ -101,11 +100,9 @@ export default function ReservaPage() {
             </p>
 
             <div className="seat-map-container">
-              {/* Pantalla */}
               <div className="screen" />
               <div className="screen-label">Pantalla</div>
 
-              {/* Grid de asientos */}
               <div className="seat-grid">
                 {datos.mapa.map((filaAsientos, filaIdx) => (
                   <div key={filaIdx} className="seat-row">
@@ -137,7 +134,6 @@ export default function ReservaPage() {
                 ))}
               </div>
 
-              {/* Leyenda */}
               <div className="seat-legend">
                 <div className="seat-legend-item">
                   <div className="legend-dot" style={{ background: 'var(--seat-available)' }} />
@@ -155,7 +151,6 @@ export default function ReservaPage() {
             </div>
           </div>
 
-          {/* Resumen de reserva */}
           <div style={{ width: 320, minWidth: 280 }}>
             <div className="reservation-summary">
               <h3>🎟️ Resumen de Reserva</h3>

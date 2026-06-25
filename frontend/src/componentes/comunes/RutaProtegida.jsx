@@ -1,10 +1,7 @@
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../../contextos/AutenticacionContexto';
 
-/**
- * Componente que protege rutas que requieren autenticación
- * Si requiereAdmin es true, solo permite acceso a administradores
- */
+
 export default function RutaProtegida({ children, requiereAdmin = false }) {
   const { estaAutenticado, esAdmin, cargando } = useAuth();
 

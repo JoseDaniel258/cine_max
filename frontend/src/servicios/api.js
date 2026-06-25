@@ -1,8 +1,5 @@
 import axios from 'axios';
 
-/**
- * Instancia de Axios configurada para la API del backend
- */
 const api = axios.create({
   baseURL: 'http://localhost:3000/api',
   headers: {
@@ -10,7 +7,6 @@ const api = axios.create({
   },
 });
 
-// Interceptor: Agregar token JWT a cada petición
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
   if (token) {
@@ -19,7 +15,6 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-// Interceptor: Manejar errores de autenticación
 api.interceptors.response.use(
   (response) => response,
   (error) => {

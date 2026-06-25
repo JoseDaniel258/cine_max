@@ -9,7 +9,6 @@ export default function PanelAdminPage() {
         <p className="page-subtitle">Gestiona todos los aspectos de la cadena de cines</p>
 
         <div className="movies-grid" style={{ marginTop: 40 }}>
-          {/* Card Gestión de Películas */}
           <Link to="/admin/peliculas">
             <div className="card" style={{ padding: 32, textAlign: 'center', cursor: 'pointer' }}>
               <MdMovie style={{ fontSize: '4rem', color: 'var(--color-primary)', marginBottom: 16 }} />
@@ -20,7 +19,6 @@ export default function PanelAdminPage() {
             </div>
           </Link>
 
-          {/* Card Gestión de Salas */}
           <Link to="/admin/salas">
             <div className="card" style={{ padding: 32, textAlign: 'center', cursor: 'pointer' }}>
               <MdEventSeat style={{ fontSize: '4rem', color: 'var(--color-primary)', marginBottom: 16 }} />
@@ -31,7 +29,6 @@ export default function PanelAdminPage() {
             </div>
           </Link>
 
-          {/* Card Gestión de Funciones */}
           <Link to="/admin/funciones">
             <div className="card" style={{ padding: 32, textAlign: 'center', cursor: 'pointer' }}>
               <MdCalendarMonth style={{ fontSize: '4rem', color: 'var(--color-primary)', marginBottom: 16 }} />

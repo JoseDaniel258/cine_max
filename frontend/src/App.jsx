@@ -2,17 +2,14 @@ import { Routes, Route } from 'react-router-dom';
 import BarraNavegacion from './componentes/comunes/BarraNavegacion';
 import RutaProtegida from './componentes/comunes/RutaProtegida';
 
-// Páginas Públicas
 import CarteleraPage from './paginas/CarteleraPage';
 import DetallePeliculaPage from './paginas/DetallePeliculaPage';
 import LoginPage from './paginas/LoginPage';
 import RegistroPage from './paginas/RegistroPage';
 
-// Páginas de Cliente
 import ReservaPage from './paginas/ReservaPage';
 import MisReservasPage from './paginas/MisReservasPage';
 
-// Páginas de Admin
 import PanelAdminPage from './paginas/admin/PanelAdminPage';
 import GestionPeliculasPage from './paginas/admin/GestionPeliculasPage';
 import GestionSalasPage from './paginas/admin/GestionSalasPage';
@@ -24,13 +21,11 @@ function App() {
       <BarraNavegacion />
       
       <Routes>
-        {/* Rutas Públicas */}
         <Route path="/" element={<CarteleraPage />} />
         <Route path="/pelicula/:id" element={<DetallePeliculaPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/registro" element={<RegistroPage />} />
 
-        {/* Rutas Protegidas (Cliente) */}
         <Route 
           path="/reserva/:funcionId" 
           element={
@@ -48,7 +43,6 @@ function App() {
           } 
         />
 
-        {/* Rutas Protegidas (Administrador) */}
         <Route 
           path="/admin" 
           element={

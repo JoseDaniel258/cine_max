@@ -143,7 +143,6 @@ export default function GestionSalasPage() {
           </div>
         )}
 
-        {/* Modal Formulario */}
         {modalAbierto && (
           <div className="modal-overlay">
             <div className="modal">

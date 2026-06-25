@@ -40,7 +40,6 @@ export default function CarteleraPage() {
         <h1 className="page-title">🎬 Cartelera</h1>
         <p className="page-subtitle">Descubre las mejores películas en nuestras salas</p>
 
-        {/* Barra de búsqueda y filtros */}
         <div className="filters-bar">
           <div className="search-input-wrapper">
             <MdSearch className="search-icon" />
@@ -65,7 +64,6 @@ export default function CarteleraPage() {
           ))}
         </div>
 
-        {/* Grid de películas */}
         {cargando ? (
           <div className="loading-container">
             <div className="spinner" />
